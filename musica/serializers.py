@@ -36,3 +36,19 @@ class AlbumSerializer(serializers.ModelSerializer):
 	    for track in tracks:
 	      Canciones.objects.create(album=album, **track)
 	    return validated_data
+
+class CancionesSolasSerializer(serializers.ModelSerializer):
+    """!
+    Clase para serializar el modelo de canciones solas
+
+    @author Rodrigo Boet (rudmanmrrod at gmail.com)
+    @date 08-10-2018
+    @version 1.0.0
+    """
+
+    album_id = serializers.IntegerField(write_only=True)
+
+    class Meta:
+        model = Canciones
+        fields = ("nombre","album","album_id")
+        depth = 1

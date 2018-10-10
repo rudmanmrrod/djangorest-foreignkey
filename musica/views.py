@@ -25,4 +25,4 @@ class CancionesViewSet(viewsets.ModelViewSet):
     """
     model = Canciones
     queryset = Canciones.objects.all()
-    serializer_class = CancionesSerializer
+    serializer_class = CancionesSolasSerializer
